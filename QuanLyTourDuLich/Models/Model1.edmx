@@ -1,0 +1,813 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLy_TourDuLichModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ChiTiet_DatTour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SoNguoiDat" Type="int" />
+          <Property Name="DiemXuatPhat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tour_id" Type="int" />
+          <Property Name="DatTour_id" Type="int" />
+        </EntityType>
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_id" Type="int" />
+          <Property Name="Tour_id" Type="int" />
+          <Property Name="NoiDung" Type="text" />
+          <Property Name="Vote" Type="int" />
+        </EntityType>
+        <EntityType Name="DatTour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GhiChu" Type="text" />
+          <Property Name="TrangThai" Type="int" />
+          <Property Name="User_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TieuDe" Type="nvarchar" MaxLength="50" />
+          <Property Name="NoiDung" Type="text" />
+          <Property Name="NgayPhanHoi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HuongDanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Image_Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tour_id" Type="int" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_id" Type="int" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Loai_Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PhanCong_HuongDanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tour_id" Type="int" />
+          <Property Name="HuongDanVien_id" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gia" Type="int" />
+          <Property Name="TieuDe" Type="nvarchar" MaxLength="50" />
+          <Property Name="MoTa" Type="text" />
+          <Property Name="LichTrinh" Type="text" />
+          <Property Name="DiemKhoiHanh" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiemDen" Type="nvarchar" MaxLength="50" />
+          <Property Name="TrangThai" Type="int" />
+          <Property Name="NgayKhoiHanh" Type="datetime" />
+          <Property Name="NgayKetThuc" Type="datetime" />
+          <Property Name="SoLuongCon" Type="int" />
+          <Property Name="Loai_Tour_id" Type="int" />
+        </EntityType>
+        <EntityType Name="ThanhToan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DatTour_id" Type="int" />
+          <Property Name="NgayThanhToan" Type="datetime" />
+          <Property Name="TongTien" Type="int" />
+        </EntityType>
+        <Association Name="FK__ChiTiet_D__DatTo__25869641">
+          <End Role="DatTour" Type="Self.DatTour" Multiplicity="0..1" />
+          <End Role="ChiTiet_DatTour" Type="Self.ChiTiet_DatTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatTour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChiTiet_DatTour">
+              <PropertyRef Name="DatTour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChiTiet_D__Tour___267ABA7A">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="ChiTiet_DatTour" Type="Self.ChiTiet_DatTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChiTiet_DatTour">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanhGia__Tour_id__276EDEB3">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanhGia__User_id__286302EC">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatTour__User_id__29572725">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="DatTour" Type="Self.DatTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DatTour">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Image_Tou__Tour___2A4B4B5E">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="Image_Tour" Type="Self.Image_Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Image_Tour">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KhachHang__Role___2B3F6F97">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="KhachHang">
+              <PropertyRef Name="Role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCong___Huong__2C3393D0">
+          <End Role="HuongDanVien" Type="Self.HuongDanVien" Multiplicity="0..1" />
+          <End Role="PhanCong_HuongDanVien" Type="Self.PhanCong_HuongDanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuongDanVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhanCong_HuongDanVien">
+              <PropertyRef Name="HuongDanVien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCong___Tour___2D27B809">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="PhanCong_HuongDanVien" Type="Self.PhanCong_HuongDanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhanCong_HuongDanVien">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tour__Loai_Tour___2F10007B">
+          <End Role="Loai_Tour" Type="Self.Loai_Tour" Multiplicity="0..1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="Loai_Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThanhToan__DatTo__2E1BDC42">
+          <End Role="DatTour" Type="Self.DatTour" Multiplicity="0..1" />
+          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatTour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ThanhToan">
+              <PropertyRef Name="DatTour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLy_TourDuLichModelStoreContainer">
+          <EntitySet Name="ChiTiet_DatTour" EntityType="Self.ChiTiet_DatTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DanhGia" EntityType="Self.DanhGia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatTour" EntityType="Self.DatTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HuongDanVien" EntityType="Self.HuongDanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image_Tour" EntityType="Self.Image_Tour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loai_Tour" EntityType="Self.Loai_Tour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhanCong_HuongDanVien" EntityType="Self.PhanCong_HuongDanVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ChiTiet_D__DatTo__25869641" Association="Self.FK__ChiTiet_D__DatTo__25869641">
+            <End Role="DatTour" EntitySet="DatTour" />
+            <End Role="ChiTiet_DatTour" EntitySet="ChiTiet_DatTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTiet_D__Tour___267ABA7A" Association="Self.FK__ChiTiet_D__Tour___267ABA7A">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="ChiTiet_DatTour" EntitySet="ChiTiet_DatTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanhGia__Tour_id__276EDEB3" Association="Self.FK__DanhGia__Tour_id__276EDEB3">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanhGia__User_id__286302EC" Association="Self.FK__DanhGia__User_id__286302EC">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatTour__User_id__29572725" Association="Self.FK__DatTour__User_id__29572725">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DatTour" EntitySet="DatTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Image_Tou__Tour___2A4B4B5E" Association="Self.FK__Image_Tou__Tour___2A4B4B5E">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Image_Tour" EntitySet="Image_Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KhachHang__Role___2B3F6F97" Association="Self.FK__KhachHang__Role___2B3F6F97">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="KhachHang" EntitySet="KhachHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCong___Huong__2C3393D0" Association="Self.FK__PhanCong___Huong__2C3393D0">
+            <End Role="HuongDanVien" EntitySet="HuongDanVien" />
+            <End Role="PhanCong_HuongDanVien" EntitySet="PhanCong_HuongDanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCong___Tour___2D27B809" Association="Self.FK__PhanCong___Tour___2D27B809">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="PhanCong_HuongDanVien" EntitySet="PhanCong_HuongDanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tour__Loai_Tour___2F10007B" Association="Self.FK__Tour__Loai_Tour___2F10007B">
+            <End Role="Loai_Tour" EntitySet="Loai_Tour" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThanhToan__DatTo__2E1BDC42" Association="Self.FK__ThanhToan__DatTo__2E1BDC42">
+            <End Role="DatTour" EntitySet="DatTour" />
+            <End Role="ThanhToan" EntitySet="ThanhToan" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLy_TourDuLichModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ChiTiet_DatTour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SoNguoiDat" Type="Int32" />
+          <Property Name="DiemXuatPhat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tour_id" Type="Int32" />
+          <Property Name="DatTour_id" Type="Int32" />
+          <NavigationProperty Name="DatTour" Relationship="Self.FK__ChiTiet_D__DatTo__25869641" FromRole="ChiTiet_DatTour" ToRole="DatTour" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__ChiTiet_D__Tour___267ABA7A" FromRole="ChiTiet_DatTour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="DanhGia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_id" Type="Int32" />
+          <Property Name="Tour_id" Type="Int32" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Vote" Type="Int32" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__DanhGia__Tour_id__276EDEB3" FromRole="DanhGia" ToRole="Tour" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DanhGia__User_id__286302EC" FromRole="DanhGia" ToRole="KhachHang" />
+        </EntityType>
+        <EntityType Name="DatTour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GhiChu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TrangThai" Type="Int32" />
+          <Property Name="User_id" Type="Int32" />
+          <NavigationProperty Name="ChiTiet_DatTour" Relationship="Self.FK__ChiTiet_D__DatTo__25869641" FromRole="DatTour" ToRole="ChiTiet_DatTour" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__DatTour__User_id__29572725" FromRole="DatTour" ToRole="KhachHang" />
+          <NavigationProperty Name="ThanhToan" Relationship="Self.FK__ThanhToan__DatTo__2E1BDC42" FromRole="DatTour" ToRole="ThanhToan" />
+        </EntityType>
+        <EntityType Name="Feedback">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NgayPhanHoi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HuongDanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="PhanCong_HuongDanVien" Relationship="Self.FK__PhanCong___Huong__2C3393D0" FromRole="HuongDanVien" ToRole="PhanCong_HuongDanVien" />
+        </EntityType>
+        <EntityType Name="Image_Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tour_id" Type="Int32" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Image_Tou__Tour___2A4B4B5E" FromRole="Image_Tour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_id" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DanhGia" Relationship="Self.FK__DanhGia__User_id__286302EC" FromRole="KhachHang" ToRole="DanhGia" />
+          <NavigationProperty Name="DatTour" Relationship="Self.FK__DatTour__User_id__29572725" FromRole="KhachHang" ToRole="DatTour" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__KhachHang__Role___2B3F6F97" FromRole="KhachHang" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Loai_Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__Tour__Loai_Tour___2F10007B" FromRole="Loai_Tour" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="PhanCong_HuongDanVien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tour_id" Type="Int32" />
+          <Property Name="HuongDanVien_id" Type="Int32" />
+          <NavigationProperty Name="HuongDanVien" Relationship="Self.FK__PhanCong___Huong__2C3393D0" FromRole="PhanCong_HuongDanVien" ToRole="HuongDanVien" />
+          <NavigationProperty Name="Tour" Relationship="Self.FK__PhanCong___Tour___2D27B809" FromRole="PhanCong_HuongDanVien" ToRole="Tour" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KhachHang" Relationship="Self.FK__KhachHang__Role___2B3F6F97" FromRole="Role" ToRole="KhachHang" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Int32" />
+          <Property Name="TieuDe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MoTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LichTrinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DiemKhoiHanh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiemDen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="Int32" />
+          <Property Name="NgayKhoiHanh" Type="DateTime" Precision="3" />
+          <Property Name="NgayKetThuc" Type="DateTime" Precision="3" />
+          <Property Name="SoLuongCon" Type="Int32" />
+          <Property Name="Loai_Tour_id" Type="Int32" />
+          <NavigationProperty Name="ChiTiet_DatTour" Relationship="Self.FK__ChiTiet_D__Tour___267ABA7A" FromRole="Tour" ToRole="ChiTiet_DatTour" />
+          <NavigationProperty Name="DanhGia" Relationship="Self.FK__DanhGia__Tour_id__276EDEB3" FromRole="Tour" ToRole="DanhGia" />
+          <NavigationProperty Name="Image_Tour" Relationship="Self.FK__Image_Tou__Tour___2A4B4B5E" FromRole="Tour" ToRole="Image_Tour" />
+          <NavigationProperty Name="Loai_Tour" Relationship="Self.FK__Tour__Loai_Tour___2F10007B" FromRole="Tour" ToRole="Loai_Tour" />
+          <NavigationProperty Name="PhanCong_HuongDanVien" Relationship="Self.FK__PhanCong___Tour___2D27B809" FromRole="Tour" ToRole="PhanCong_HuongDanVien" />
+        </EntityType>
+        <EntityType Name="ThanhToan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DatTour_id" Type="Int32" />
+          <Property Name="NgayThanhToan" Type="DateTime" Precision="3" />
+          <Property Name="TongTien" Type="Int32" />
+          <NavigationProperty Name="DatTour" Relationship="Self.FK__ThanhToan__DatTo__2E1BDC42" FromRole="ThanhToan" ToRole="DatTour" />
+        </EntityType>
+        <Association Name="FK__ChiTiet_D__DatTo__25869641">
+          <End Role="DatTour" Type="Self.DatTour" Multiplicity="0..1" />
+          <End Role="ChiTiet_DatTour" Type="Self.ChiTiet_DatTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatTour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChiTiet_DatTour">
+              <PropertyRef Name="DatTour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChiTiet_D__Tour___267ABA7A">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="ChiTiet_DatTour" Type="Self.ChiTiet_DatTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ChiTiet_DatTour">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanhGia__Tour_id__276EDEB3">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DanhGia__User_id__286302EC">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="DanhGia" Type="Self.DanhGia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DanhGia">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatTour__User_id__29572725">
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+          <End Role="DatTour" Type="Self.DatTour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DatTour">
+              <PropertyRef Name="User_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ThanhToan__DatTo__2E1BDC42">
+          <End Role="DatTour" Type="Self.DatTour" Multiplicity="0..1" />
+          <End Role="ThanhToan" Type="Self.ThanhToan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DatTour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ThanhToan">
+              <PropertyRef Name="DatTour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCong___Huong__2C3393D0">
+          <End Role="HuongDanVien" Type="Self.HuongDanVien" Multiplicity="0..1" />
+          <End Role="PhanCong_HuongDanVien" Type="Self.PhanCong_HuongDanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuongDanVien">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhanCong_HuongDanVien">
+              <PropertyRef Name="HuongDanVien_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Image_Tou__Tour___2A4B4B5E">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="Image_Tour" Type="Self.Image_Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Image_Tour">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KhachHang__Role___2B3F6F97">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="KhachHang">
+              <PropertyRef Name="Role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tour__Loai_Tour___2F10007B">
+          <End Role="Loai_Tour" Type="Self.Loai_Tour" Multiplicity="0..1" />
+          <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Loai_Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Tour">
+              <PropertyRef Name="Loai_Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PhanCong___Tour___2D27B809">
+          <End Role="Tour" Type="Self.Tour" Multiplicity="0..1" />
+          <End Role="PhanCong_HuongDanVien" Type="Self.PhanCong_HuongDanVien" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tour">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhanCong_HuongDanVien">
+              <PropertyRef Name="Tour_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLy_TourDuLichEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ChiTiet_DatTour" EntityType="Self.ChiTiet_DatTour" />
+          <EntitySet Name="DanhGia" EntityType="Self.DanhGia" />
+          <EntitySet Name="DatTour" EntityType="Self.DatTour" />
+          <EntitySet Name="Feedback" EntityType="Self.Feedback" />
+          <EntitySet Name="HuongDanVien" EntityType="Self.HuongDanVien" />
+          <EntitySet Name="Image_Tour" EntityType="Self.Image_Tour" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" />
+          <EntitySet Name="Loai_Tour" EntityType="Self.Loai_Tour" />
+          <EntitySet Name="PhanCong_HuongDanVien" EntityType="Self.PhanCong_HuongDanVien" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" />
+          <EntitySet Name="ThanhToan" EntityType="Self.ThanhToan" />
+          <AssociationSet Name="FK__ChiTiet_D__DatTo__25869641" Association="Self.FK__ChiTiet_D__DatTo__25869641">
+            <End Role="DatTour" EntitySet="DatTour" />
+            <End Role="ChiTiet_DatTour" EntitySet="ChiTiet_DatTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChiTiet_D__Tour___267ABA7A" Association="Self.FK__ChiTiet_D__Tour___267ABA7A">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="ChiTiet_DatTour" EntitySet="ChiTiet_DatTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanhGia__Tour_id__276EDEB3" Association="Self.FK__DanhGia__Tour_id__276EDEB3">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DanhGia__User_id__286302EC" Association="Self.FK__DanhGia__User_id__286302EC">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DanhGia" EntitySet="DanhGia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatTour__User_id__29572725" Association="Self.FK__DatTour__User_id__29572725">
+            <End Role="KhachHang" EntitySet="KhachHang" />
+            <End Role="DatTour" EntitySet="DatTour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ThanhToan__DatTo__2E1BDC42" Association="Self.FK__ThanhToan__DatTo__2E1BDC42">
+            <End Role="DatTour" EntitySet="DatTour" />
+            <End Role="ThanhToan" EntitySet="ThanhToan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCong___Huong__2C3393D0" Association="Self.FK__PhanCong___Huong__2C3393D0">
+            <End Role="HuongDanVien" EntitySet="HuongDanVien" />
+            <End Role="PhanCong_HuongDanVien" EntitySet="PhanCong_HuongDanVien" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Image_Tou__Tour___2A4B4B5E" Association="Self.FK__Image_Tou__Tour___2A4B4B5E">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="Image_Tour" EntitySet="Image_Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KhachHang__Role___2B3F6F97" Association="Self.FK__KhachHang__Role___2B3F6F97">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="KhachHang" EntitySet="KhachHang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tour__Loai_Tour___2F10007B" Association="Self.FK__Tour__Loai_Tour___2F10007B">
+            <End Role="Loai_Tour" EntitySet="Loai_Tour" />
+            <End Role="Tour" EntitySet="Tour" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PhanCong___Tour___2D27B809" Association="Self.FK__PhanCong___Tour___2D27B809">
+            <End Role="Tour" EntitySet="Tour" />
+            <End Role="PhanCong_HuongDanVien" EntitySet="PhanCong_HuongDanVien" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLy_TourDuLichModelStoreContainer" CdmEntityContainer="QuanLy_TourDuLichEntities">
+          <EntitySetMapping Name="ChiTiet_DatTour">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.ChiTiet_DatTour">
+              <MappingFragment StoreEntitySet="ChiTiet_DatTour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="SoNguoiDat" ColumnName="SoNguoiDat" />
+                <ScalarProperty Name="DiemXuatPhat" ColumnName="DiemXuatPhat" />
+                <ScalarProperty Name="Tour_id" ColumnName="Tour_id" />
+                <ScalarProperty Name="DatTour_id" ColumnName="DatTour_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DanhGia">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.DanhGia">
+              <MappingFragment StoreEntitySet="DanhGia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+                <ScalarProperty Name="Tour_id" ColumnName="Tour_id" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="Vote" ColumnName="Vote" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatTour">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.DatTour">
+              <MappingFragment StoreEntitySet="DatTour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="User_id" ColumnName="User_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Feedback">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.Feedback">
+              <MappingFragment StoreEntitySet="Feedback">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="NgayPhanHoi" ColumnName="NgayPhanHoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HuongDanVien">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.HuongDanVien">
+              <MappingFragment StoreEntitySet="HuongDanVien">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Image_Tour">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.Image_Tour">
+              <MappingFragment StoreEntitySet="Image_Tour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Tour_id" ColumnName="Tour_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHang">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Role_id" ColumnName="Role_id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loai_Tour">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.Loai_Tour">
+              <MappingFragment StoreEntitySet="Loai_Tour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhanCong_HuongDanVien">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.PhanCong_HuongDanVien">
+              <MappingFragment StoreEntitySet="PhanCong_HuongDanVien">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Tour_id" ColumnName="Tour_id" />
+                <ScalarProperty Name="HuongDanVien_id" ColumnName="HuongDanVien_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tour">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Gia" ColumnName="Gia" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="LichTrinh" ColumnName="LichTrinh" />
+                <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
+                <ScalarProperty Name="DiemDen" ColumnName="DiemDen" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="NgayKhoiHanh" ColumnName="NgayKhoiHanh" />
+                <ScalarProperty Name="NgayKetThuc" ColumnName="NgayKetThuc" />
+                <ScalarProperty Name="SoLuongCon" ColumnName="SoLuongCon" />
+                <ScalarProperty Name="Loai_Tour_id" ColumnName="Loai_Tour_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThanhToan">
+            <EntityTypeMapping TypeName="QuanLy_TourDuLichModel.ThanhToan">
+              <MappingFragment StoreEntitySet="ThanhToan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DatTour_id" ColumnName="DatTour_id" />
+                <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+                <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

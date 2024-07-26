@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="35edcff68bbd4c869073f2f7d306ca8d" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.ChiTiet_DatTour" Width="1.5" PointX="5.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.DanhGia" Width="1.5" PointX="8.25" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.DatTour" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.Feedback" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.HuongDanVien" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.Image_Tour" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.KhachHang" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.Loai_Tour" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.PhanCong_HuongDanVien" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.Role" Width="1.5" PointX="1.5" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.Tour" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLy_TourDuLichModel.ThanhToan" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__ChiTiet_D__DatTo__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__ChiTiet_D__Tour___267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__DanhGia__Tour_id__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__DanhGia__User_id__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__DatTour__User_id__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__ThanhToan__DatTo__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__PhanCong___Huong__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__Image_Tou__Tour___2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__KhachHang__Role___2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__Tour__Loai_Tour___2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLy_TourDuLichModel.FK__PhanCong___Tour___2D27B809" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
